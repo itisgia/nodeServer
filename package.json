@@ -1,0 +1,19 @@
+{
+  "name": "nodeserver",
+  "version": "0.0.1",
+  "description": "node server",
+  "main": "index.js",
+  "scripts": {
+      "dev:server": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itisgia/nodeServer.git"
+  },
+  "author": "Jiah Kwon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/itisgia/nodeServer/issues"
+  },
+  "homepage": "https://github.com/itisgia/nodeServer#readme"
+}
