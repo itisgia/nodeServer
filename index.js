@@ -42,22 +42,25 @@ var server = http.createServer(function(request, response){
             //if i type this url,
             instock(response);
 
-        } else if (request.url === '/outofStock') {
-            outofStock(response);
         }
     } else if (request.method === "POST") {
-        if (request.url === './formSubmit' ) {
-            // console.log(request);
+
+        if (request.url === '/formSubmit' ) {
+
+            console.log(request);
             // response.writeHead(200, {'Content-Type':'text/html'});
             // response.end(request);
             var body = '';
             request.on('data', function (data) {
-                body += data; // eah time around it;s gonna give chunk of datas into body
+                body += data; // each time around it;s gonna give chunk of datas into body
             })
-
             request.on('end', function () {
                 var formData = qs.parse(body);
-                console.log(body);
+                console.log(formData);
+                response.writeHead(302, {
+                    'Location' : '/'
+                });
+                response.end();
             })
         }
 
@@ -100,11 +103,4 @@ function instock(response) {
         //retyribg all item whichis tryw
     });
     response.end(JSON.stringify(stock));
-}
-
-function outofStock(response) {
-    var stockOut = data.filter(function (check) {
-        return check.inStock === false;
-    });
-    response.end(JSON.stringify(stockOut));
 }
